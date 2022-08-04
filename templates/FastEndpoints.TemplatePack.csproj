@@ -29,7 +29,7 @@
         <Content Include="**/*"
                  Exclude="bin/**;obj/**;packages.lock.json;.idea/**;Properties/**"/>
         <Compile Remove="**\*"/>
-        <None Include="..\..\Src\Documentation\images\icon.png" Pack="true" PackagePath="\" Link="Content\Icon" />
+        <None Include="icon.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>

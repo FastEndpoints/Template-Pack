@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bwDaVEpyg6oitDkRt9mCUSKmsEIcywN7Qwv6OAGXGtPZzYLnIl/bAVeuaZjGCc5l43zmn8le0W68KpqLBu3xQw==",
+  "success": true,
+  "projectFilePath": "D:\\SOURCE-CONTROL\\FastEndpoints\\Template-Pack\\templates\\FastEndpoints.TemplatePack.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\djnitehawk\\.nuget\\packages\\fastendpoints\\4.4.0\\fastendpoints.4.4.0.nupkg.sha512",
+    "C:\\Users\\djnitehawk\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
