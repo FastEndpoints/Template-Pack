@@ -1,0 +1,2 @@
+- add fastendpoints starter project template
+- add xunit test project template

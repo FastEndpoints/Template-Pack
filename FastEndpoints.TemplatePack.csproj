@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+
+        <Version>2.0.0</Version>
+
+        <PackageType>Template</PackageType>
+        <PackageId>FastEndpoints.TemplatePack</PackageId>
+        <Title>Template Pack For FastEndpoints</Title>
+        <Authors>FastEndpoints</Authors>
+        <Description>FastEndpoints template pack with quick project and item scaffolds.</Description>
+        <PackageTags>dotnet-new;templates;fast-endpoints;xunit</PackageTags>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <NoDefaultExcludes>true</NoDefaultExcludes>        
+        <PackageProjectUrl>https://fast-endpoints.com/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/FastEndpoints/FastEndpoints.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+        <None Include="icon.png" Pack="true" PackagePath="\" />
+        <Compile Remove="**\*" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "FastEndpoints",
+    "classifications": [ "FastEndpoints" ],
+    "identity": "FastEndpoints.Starter",
+    "name": "FastEndpoints Starter Project Template",
+    "shortName": "feproj",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "sourceName": "MyProject",
+    "preferNameDirectory": true
+  }
