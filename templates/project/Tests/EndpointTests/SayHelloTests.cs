@@ -6,7 +6,7 @@ public class SayHelloTests : TestBase
 {
     public SayHelloTests(AppFixture fixture) : base(fixture) { }
 
-    [Fact]
+    [Fact, Priority(1)]
     public async Task Invalid_User_Input()
     {
         var (rsp, res) = await App.GuestClient.POSTAsync<Endpoint, Request, ErrorResponse>(new()
