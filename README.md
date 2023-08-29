@@ -18,13 +18,9 @@ dotnet new fetest
 
 ## Scaffold Feature File Set
 ```
-dotnet new feat --name MyProject.Comments.Create \
--m post \
--r api/comments \
--o Features/Comments/Create
+dotnet new feat -n MyProject.Comments.Create -m post -r api/comments -o Features/Comments/Create
 ```
-
-#### All Options
+#### Available Options
 
 ```
 > dotnet new feat --help
