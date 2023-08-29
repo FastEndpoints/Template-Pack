@@ -1,2 +1,3 @@
-- add fastendpoints starter project template
-- add xunit test project template
+- add `xunit.runner.json` config file
+- add test case orderer to test fixture 
+- add global usings

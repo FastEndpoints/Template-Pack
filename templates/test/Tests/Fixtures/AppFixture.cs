@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Logging;
-using Xunit;
 using Xunit.Abstractions;
 
-namespace Tests;
+namespace Tests.Fixtures;
 
+[TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
 public abstract class TestBase : IClassFixture<AppFixture>
 {
     protected AppFixture App { get; init; }

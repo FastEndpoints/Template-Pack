@@ -1,14 +1,12 @@
-using Xunit;
-
-namespace Tests;
+namespace MyTests;
 
 public class MyTests : TestBase
 {
     public MyTests(AppFixture fixture) : base(fixture) { }
 
     [Fact]
-    public async Task Name_Of_The_Test()
+    public void My_First_Test()
     {
-
+        (1 + 1).Should().Be(2);
     }
 }
