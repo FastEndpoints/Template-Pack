@@ -2,7 +2,7 @@
 
     <PropertyGroup>
 
-        <Version>1.1.1.1</Version>
+        <Version>1.2.0</Version>
 
         <PackageType>Template</PackageType>
         <PackageId>FastEndpoints.TemplatePack</PackageId>
@@ -24,7 +24,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**" />
         <None Include="icon.png" Pack="true" PackagePath="\" />
         <Compile Remove="**\*" />
     </ItemGroup>

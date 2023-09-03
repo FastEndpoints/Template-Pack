@@ -10,9 +10,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints" Version="5.15.0" />
-        <PackageReference Include="FastEndpoints.Security" Version="5.15.0" />
-        <PackageReference Include="FastEndpoints.Swagger" Version="5.15.0" />
+        <PackageReference Include="FastEndpoints" Version="5.17.0" />
+        <PackageReference Include="FastEndpoints.Security" Version="5.17.0" />
+        <PackageReference Include="FastEndpoints.Swagger" Version="5.17.0" />
     </ItemGroup>
 
 </Project>

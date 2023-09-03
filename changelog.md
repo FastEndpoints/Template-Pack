@@ -1,3 +1,1 @@
-- add `xunit.runner.json` config file
-- add test case orderer to test fixture 
-- add global usings
+- use `FastEndpoints.Testing` for integration tests

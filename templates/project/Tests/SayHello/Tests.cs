@@ -1,15 +1,15 @@
 using SayHello;
 
-namespace EndpointTests;
+namespace Tests.SayHello;
 
-public class SayHelloTests : TestBase
+public class Tests : TestClass<Fixture>
 {
-    public SayHelloTests(AppFixture fixture) : base(fixture) { }
+    public Tests(Fixture f, ITestOutputHelper o) : base(f, o) { }
 
     [Fact, Priority(1)]
     public async Task Invalid_User_Input()
     {
-        var (rsp, res) = await App.GuestClient.POSTAsync<Endpoint, Request, ErrorResponse>(new()
+        var (rsp, res) = await Fixture.Client.POSTAsync<Endpoint, Request, ErrorResponse>(new()
         {
             FirstName = "x",
             LastName = "y"
@@ -17,14 +17,13 @@ public class SayHelloTests : TestBase
 
         rsp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         res!.Errors.Count.Should().Be(2);
-        res.Errors["firstName"][0].Contains("length");
-        res.Errors["lastName"][0].Contains("length");
+        res.Errors.Keys.Should().Equal("firstName", "lastName");
     }
 
     [Fact, Priority(2)]
     public async Task Valid_User_Input()
     {
-        var (rsp, res) = await App.GuestClient.POSTAsync<Endpoint, Request, Response>(new()
+        var (rsp, res) = await Fixture.Client.POSTAsync<Endpoint, Request, Response>(new()
         {
             FirstName = "Mike",
             LastName = "Kelso"
