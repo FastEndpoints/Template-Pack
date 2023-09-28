@@ -1,7 +1,8 @@
 using FastEndpoints.Swagger;
 
-var bld = WebApplication.CreateBuilder();
+var bld = WebApplication.CreateBuilder(args);
 bld.Services
+   .AddAuthorization()
    .AddFastEndpoints()
    .SwaggerDocument();
 
