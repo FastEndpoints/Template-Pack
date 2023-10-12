@@ -1,3 +1,1 @@
-- exclude live unit testing config files
-- pass `args` to `WebApplication.CreateBuilder` method to pickup correct test environment
-- upgrade packages to latest
+- update `.editorconfig` file
