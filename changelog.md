@@ -1,1 +1,3 @@
+- upgrade dependencies to latest
+- minor template refactoring
 - update `.editorconfig` file

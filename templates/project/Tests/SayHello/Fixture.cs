@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Tests.SayHello;
+﻿namespace Tests.SayHello;
 
 public class Fixture : TestFixture<Program>
 {
