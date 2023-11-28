@@ -2,10 +2,8 @@ using SayHello;
 
 namespace Tests.SayHello;
 
-public class Tests : TestClass<Fixture>
+public class Tests(Fixture f, ITestOutputHelper o) : TestClass<Fixture>(f, o)
 {
-    public Tests(Fixture f, ITestOutputHelper o) : base(f, o) { }
-
     [Fact, Priority(1)]
     public async Task Invalid_User_Input()
     {

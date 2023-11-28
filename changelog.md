@@ -1,3 +1,4 @@
+- upgrade to .net 8
 - upgrade dependencies to latest
-- minor template refactoring
+- refactor to use primary constructors
 - update `.editorconfig` file

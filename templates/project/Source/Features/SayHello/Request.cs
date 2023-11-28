@@ -7,7 +7,7 @@ sealed class Request
     public string FirstName { get; set; }
     public string LastName { get; set; }
 
-    sealed class Validator : Validator<Request>
+    internal sealed class Validator : Validator<Request>
     {
         public Validator()
         {

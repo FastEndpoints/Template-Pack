@@ -1,5 +1,3 @@
-using FastEndpoints.Swagger;
-
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
    .AddFastEndpoints()

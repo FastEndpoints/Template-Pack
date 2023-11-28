@@ -1,14 +1,9 @@
 namespace Tests.Sample;
 
-public class MyFixture : TestFixture<Program>
-{
-    public MyFixture(IMessageSink s) : base(s) { }
-}
+public class MyFixture(IMessageSink s) : TestFixture<Program>(s) {}
 
-public class SampleTests : TestClass<MyFixture>
+public class SampleTests(MyFixture f, ITestOutputHelper o) : TestClass<MyFixture>(f, o)
 {
-    public SampleTests(MyFixture f, ITestOutputHelper o) : base(f, o) { }
-
     [Fact]
     public void Sample_Test()
     {
