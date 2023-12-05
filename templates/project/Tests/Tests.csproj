@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints.Testing" Version="5.20.0" />
+        <PackageReference Include="FastEndpoints.Testing" Version="5.20.1" />
         <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
         <PackageReference Include="xunit" Version="2.6.2" />
@@ -18,6 +18,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Source\MyProject.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="xunit.runner.json" CopyToOutputDirectory="Always"/>
     </ItemGroup>
 
 </Project>
