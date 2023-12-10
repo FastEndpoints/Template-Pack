@@ -1,3 +1,2 @@
-- fix `xunit.runner.json` file was being copied to build output folder
 - update `.editorconfig` file
 - upgrade dependencies to latest
