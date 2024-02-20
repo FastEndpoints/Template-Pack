@@ -1,10 +1,10 @@
 ﻿namespace Tests.SayHello;
 
-public class Fixture(IMessageSink s) : TestFixture<Program>(s)
+public class AppFixture(IMessageSink s) : AppFixture<Program>(s)
 {
     protected override Task SetupAsync()
     {
-        // place one-time setup for the test-class here
+        // place one-time setup for the fixture here
         return Task.CompletedTask;
     }
 

@@ -1,2 +1,2 @@
-- update `.editorconfig` file
+- change fixture type to `AppFixture<TProgram>` from `TestFixture<TProgram>`
 - upgrade dependencies to latest

@@ -1,8 +1,8 @@
 namespace Tests.Sample;
 
-public class MyFixture(IMessageSink s) : TestFixture<Program>(s) {}
+public class AppFixture(IMessageSink s) : AppFixture<Program>(s) {}
 
-public class SampleTests(MyFixture f, ITestOutputHelper o) : TestClass<MyFixture>(f, o)
+public class SampleTests(AppFixture a, ITestOutputHelper o) : TestClass<AppFixture>(a, o)
 {
     [Fact]
     public void Sample_Test()
