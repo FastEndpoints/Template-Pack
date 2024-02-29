@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <NoWarn>CS1591;CA2016</NoWarn>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.SimpleEmailV2" Version="3.7.300.53"/>
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
+        <PackageReference Include="FastEndpoints" Version="5.23.0"/>
+        <PackageReference Include="FastEndpoints.Security" Version="5.23.0"/>
+        <PackageReference Include="FastEndpoints.Swagger" Version="5.23.0"/>
+        <PackageReference Include="MessagePack" Version="2.5.140"/>
+        <PackageReference Include="MongoDB.Entities" Version="23.0.1"/>
+    </ItemGroup>
+
+    <!-- exclude test related code from release build -->
+    <PropertyGroup>
+        <GenerateProgramFile>false</GenerateProgramFile>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(Configuration)' != 'Release'">
+        <PackageReference Include="FakeItEasy" Version="8.1.0"/>
+        <PackageReference Include="FastEndpoints.Testing" Version="5.23.0"/>
+        <PackageReference Include="FluentAssertions" Version="6.12.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
+        <PackageReference Include="xunit" Version="2.7.0"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="coverlet.collector" Version="6.0.1" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <Content Update="Tests\xunit.runner.json" TargetPath="xunit.runner.json"/>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <Compile Remove="**\Tests\**"/>
+        <Content Remove="**\Tests\**"/>
+    </ItemGroup>
+    <!-- exclude test related code from release build-->
+
+</Project>
