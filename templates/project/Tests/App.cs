@@ -1,11 +1,18 @@
-﻿namespace Tests.SayHello;
+﻿using Microsoft.AspNetCore.Hosting;
 
-public class AppFixture(IMessageSink s) : AppFixture<Program>(s)
+namespace Tests.SayHello;
+
+public class App : AppFixture<Program>
 {
     protected override Task SetupAsync()
     {
         // place one-time setup for the fixture here
         return Task.CompletedTask;
+    }
+
+    protected override void ConfigureApp(IWebHostBuilder a)
+    {
+        // do host builder configuration here
     }
 
     protected override void ConfigureServices(IServiceCollection s)
