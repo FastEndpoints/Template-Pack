@@ -1,12 +1,17 @@
 # FastEndpoints.TemplatePack
-Template pack for FastEndpoints to quickly scaffold feature file sets and projects using `dotnet new` command line tool.
+Template pack for FastEndpoints to quickly scaffold feature file sets and starter projects using `dotnet new` command line tool.
 
 ## Install
 ```cs
 dotnet new install FastEndpoints.TemplatePack
 ```
 
-## Scaffold Starter Project
+## Scaffold Minimalist Starter Project
+```cs
+dotnet new feproj -n MyAwesomeProject
+```
+
+## Scaffold Starter Project With Integrated Testing
 ```cs
 dotnet new feproj -n MyAwesomeProject
 ```
