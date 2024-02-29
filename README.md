@@ -13,7 +13,7 @@ dotnet new feproj -n MyAwesomeProject
 
 ## Scaffold Starter Project With Integrated Testing
 ```cs
-dotnet new feproj -n MyAwesomeProject
+dotnet new feintproj -n MyAwesomeProject
 ```
 
 ## Scaffold xUnit Test Project
