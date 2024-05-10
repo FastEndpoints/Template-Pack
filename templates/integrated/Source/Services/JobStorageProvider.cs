@@ -41,8 +41,8 @@ sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
                  .MatchID(r.ID)
                  .Modify(jr => jr.FailureReason, exception.Message) //save exception msg
                  .Modify(b => b.Inc(jr => jr.FailureCount, 1))      //increment the failure count.
-                 .Modify(jr => jr.ExecuteAfter, retryOn)            //slide the execute after to 1 min in future.
-                 .Modify(jr => jr.ExpireOn, expireOn)               //slide the expire on to 4 hours from execute after time.
+                 .Modify(jr => jr.ExecuteAfter, retryOn)            //slide the execute after to 1 min in the future.
+                 .Modify(jr => jr.ExpireOn, expireOn)               //slide the expiry on to 4 hours from execute after time.
                  .ExecuteAsync(ct);
     }
 

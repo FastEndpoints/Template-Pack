@@ -1,3 +1,1 @@
-- add `feintproj` starter template with integrated testing in same project.
-- change fixture type to `AppFixture<TProgram>` from `TestFixture<TProgram>`
 - upgrade dependencies to latest
