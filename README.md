@@ -1,6 +1,10 @@
 # FastEndpoints.TemplatePack
 Template pack for FastEndpoints to quickly scaffold feature file sets and starter projects using `dotnet new` command line tool.
 
+### Report an Issue
+
+[Issues are tracked in the main FastEndpoints repo](https://github.com/FastEndpoints/FastEndpoints/issues). Please open an issue there.
+
 ## Install
 ```cs
 dotnet new install FastEndpoints.TemplatePack
@@ -25,7 +29,10 @@ dotnet new fetest
 ```
 dotnet new feat -n MyProject.Comments.Create -m post -r api/comments -o Features/Comments/Create
 ```
-#### Available Options
+
+### Available Options
+
+**NOTE:** The `-n` and `-o` options in the above command are `dotnet new` options for "name" and "output", respectively.
 
 ```
 > dotnet new feat --help
