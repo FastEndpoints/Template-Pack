@@ -1,1 +1,3 @@
+- add source generator to projects
+- use `ProblemDetails` for error responses
 - upgrade dependencies to latest

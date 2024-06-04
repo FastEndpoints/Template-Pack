@@ -1,6 +1,6 @@
 ﻿namespace FeatureName;
 
-static class Data
+sealed class Data
 {
     
 }

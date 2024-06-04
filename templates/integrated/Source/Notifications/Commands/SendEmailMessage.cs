@@ -4,10 +4,10 @@ namespace MyProject.Notifications;
 
 public sealed class SendEmailMessage : ICommand
 {
-    public string ToName { get; set; }
-    public string ToEmail { get; set; }
-    public string Subject { get; set; }
-    public string Body { get; set; }
+    public string ToName { get; init; }
+    public string ToEmail { get; init; }
+    public string Subject { get; init; }
+    public string Body { get; init; }
 }
 
 sealed class SendEmailMessageHandler(IAmazonSimpleEmailServiceV2 sesClient, IWebHostEnvironment env, IConfiguration cfg) : ICommandHandler<SendEmailMessage>

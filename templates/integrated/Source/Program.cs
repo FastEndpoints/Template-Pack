@@ -1,14 +1,14 @@
 using Amazon;
 using Amazon.SimpleEmailV2;
-using MyProject;
 using Dom;
 using FastEndpoints.Security;
+using MyProject;
 
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
    .AddAuthenticationJwtBearer(o => o.SigningKey = bld.Configuration["Auth:SigningKey"])
    .AddAuthorization()
-   .AddFastEndpoints()
+   .AddFastEndpoints(o => o.SourceGeneratorDiscoveredTypes.AddRange(DiscoveredTypes.All))
    .AddJobQueues<JobRecord, JobStorageProvider>()
    .AddSingleton<IAmazonSimpleEmailServiceV2>(
        new AmazonSimpleEmailServiceV2Client(

@@ -7,7 +7,7 @@ public class Tests(App App) : TestBase<App>
     [Fact, Priority(1)]
     public async Task Invalid_User_Input()
     {
-        var (rsp, res) = await App.Client.POSTAsync<Endpoint, Request, ErrorResponse>(
+        var (rsp, res) = await App.Client.POSTAsync<Endpoint, Request, ProblemDetails>(
                              new()
                              {
                                  FirstName = "x",
@@ -15,8 +15,8 @@ public class Tests(App App) : TestBase<App>
                              });
 
         rsp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        res.Errors.Count.Should().Be(2);
-        res.Errors.Keys.Should().Equal("firstName", "lastName");
+        res.Errors.Count().Should().Be(2);
+        res.Errors.Select(e => e.Name).Should().Equal("firstName", "lastName");
     }
 
     [Fact, Priority(2)]
