@@ -1,0 +1,28 @@
+services:
+  api:
+    image: sjc.vultrcr.com/MyProject/Api:latest
+    depends_on: 
+      - db
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /home/MyProject/certs:/home/MyProject/certs
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+    env_file:
+    - ./secrets
+
+  db:
+    image: mongo:7.0.12
+    network_mode: host
+    restart: no
+    command: --quiet --directoryperdb --replSet RepSet
+    volumes:
+      - /home/MyProject/mongo:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m

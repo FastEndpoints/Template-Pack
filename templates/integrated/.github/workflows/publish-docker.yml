@@ -1,0 +1,28 @@
+name: Publish Nuget Package
+
+on:
+  push:
+    branches: main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Setup .Net SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+
+      - name: Login Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: sjc.vultrcr.com
+          username: ${{ secrets.CR_USER }}
+          password: ${{ secrets.CR_PASS }}
+
+      - name: Publish Container
+        run: dotnet publish -c Release --runtime linux-musl-x64 --self-contained false /p:PublishProfile=DefaultContainer
+          
