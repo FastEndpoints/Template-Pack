@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using Amazon.SimpleEmailV2;
-using MyProject;
 using Dom;
 using MongoDB.Bson;
+using MyProject;
 
 namespace Members.Signup.Tests;
 

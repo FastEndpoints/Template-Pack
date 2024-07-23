@@ -5,7 +5,7 @@ namespace MyProject;
 
 static class Extensions
 {
-    static readonly TextInfo _txt = new CultureInfo("en-US", false).TextInfo;
+    static readonly TextInfo _txt = CultureInfo.InvariantCulture.TextInfo;
 
     internal static string TitleCase(this string value)
         => _txt.ToTitleCase(value.Trim());

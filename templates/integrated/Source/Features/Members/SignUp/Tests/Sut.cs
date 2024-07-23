@@ -1,4 +1,5 @@
 ﻿using Amazon.SimpleEmailV2;
+using Dom;
 
 namespace Members.Signup.Tests;
 
@@ -49,7 +50,7 @@ public class Sut : AppFixture<Program>
 
     protected override async Task TearDownAsync()
     {
-        await DB.DeleteAsync<Dom.Member>(MemberId);
-        await DB.DeleteAsync<Dom.JobRecord>(j => j.IsComplete == true);
+        await DB.DeleteAsync<Member>(MemberId);
+        await DB.DeleteAsync<JobRecord>(j => j.IsComplete == true);
     }
 }

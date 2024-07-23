@@ -1,8 +1,7 @@
 using Amazon;
 using Amazon.SimpleEmailV2;
 using Dom;
-using FastEndpoints.Security;
-using MyProject;
+using LettuceEncrypt;
 
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
@@ -16,7 +15,13 @@ bld.Services
            awsSecretAccessKey: bld.Configuration["Email:ApiSecret"],
            region: RegionEndpoint.USEast1));
 
-if (!bld.Environment.IsProduction())
+if (bld.Environment.IsProduction())
+{
+    bld.Services
+       .AddLettuceEncrypt()
+       .PersistDataToDirectory(new("/home/MyProject/certs"), null);
+}
+else
 {
     bld.Services.SwaggerDocument(
         d => d.DocumentSettings =
@@ -28,11 +33,13 @@ if (!bld.Environment.IsProduction())
 }
 
 var app = bld.Build();
+
 app.UseAuthentication()
    .UseAuthorization()
    .UseFastEndpoints(c => c.Errors.UseProblemDetails());
 
 await InitDatabase(app.Configuration["Database:Name"]);
+
 app.UseJobQueues(
     o =>
     {
