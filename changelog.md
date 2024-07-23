@@ -1,3 +1,4 @@
-- add source generator to projects
-- use `ProblemDetails` for error responses
+- add rider `dotnet watch` profile
+- add https with lettuceencrypt
+- add docker compose files
 - upgrade dependencies to latest
