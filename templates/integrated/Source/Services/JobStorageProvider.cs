@@ -22,6 +22,14 @@ sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
                  .ExecuteAsync(ct);
     }
 
+    public Task CancelJobAsync(Guid trackingId, CancellationToken ct)
+    {
+        return DB.Update<JobRecord>()
+                 .Match(r => r.TrackingID == trackingId)
+                 .Modify(jr => jr.IsComplete, true)
+                 .ExecuteAsync(ct);
+    }
+
     public Task OnHandlerExecutionFailureAsync(JobRecord r, Exception exception, CancellationToken ct)
     {
         if (r.FailureCount > 100)

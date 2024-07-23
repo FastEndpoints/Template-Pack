@@ -5,6 +5,7 @@ namespace Dom;
 sealed class JobRecord : Entity, IJobStorageRecord
 {
     public string QueueID { get; set; }
+    public Guid TrackingID { get; set; }
     public DateTime ExecuteAfter { get; set; }
     public DateTime ExpireOn { get; set; }
     public bool IsComplete { get; set; }
