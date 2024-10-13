@@ -1,5 +1,4 @@
 ﻿using Amazon.SimpleEmailV2.Model;
-using MyProject;
 using MyProject.Tests;
 
 namespace Members.Signup.Tests;

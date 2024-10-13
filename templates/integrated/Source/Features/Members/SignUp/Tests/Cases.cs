@@ -2,7 +2,6 @@
 using Amazon.SimpleEmailV2;
 using Dom;
 using MongoDB.Bson;
-using MyProject;
 
 namespace Members.Signup.Tests;
 

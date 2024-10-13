@@ -1,6 +1,4 @@
-﻿using MyProject;
-
-namespace Members.Signup;
+﻿namespace Members.Signup;
 
 sealed class Endpoint : Endpoint<Request, Response, Mapper>
 {

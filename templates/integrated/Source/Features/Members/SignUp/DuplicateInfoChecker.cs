@@ -1,17 +1,15 @@
-﻿using MyProject;
-
-namespace Members.Signup;
+﻿namespace Members.Signup;
 
 sealed class DuplicateInfoChecker : IPreProcessor<Request>
 {
     public async Task PreProcessAsync(IPreProcessorContext<Request> ctx, CancellationToken c)
     {
         var tEmail = DB.Find<Dom.Member>()
-                       .Match(m => m.Email == ctx.Request.Email.LowerCase())
+                       .Match(m => m.Email == ctx.Request!.Email.LowerCase())
                        .ExecuteAnyAsync(cancellation: c);
 
         var tMobile = DB.Find<Dom.Member>()
-                        .Match(m => m.MobileNumber == ctx.Request.Contact.MobileNumber.Trim())
+                        .Match(m => m.MobileNumber == ctx.Request!.Contact.MobileNumber.Trim())
                         .ExecuteAnyAsync(cancellation: c);
 
         var (eml, mob) = await Tasks.Run(tEmail, tMobile);

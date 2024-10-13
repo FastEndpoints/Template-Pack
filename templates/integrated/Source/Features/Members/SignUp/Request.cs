@@ -1,5 +1,4 @@
-﻿using MyProject;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace Members.Signup;
 

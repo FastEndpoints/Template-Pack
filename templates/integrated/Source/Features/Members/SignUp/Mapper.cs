@@ -1,5 +1,4 @@
-﻿using MyProject;
-using Dom;
+﻿using Dom;
 
 namespace Members.Signup;
 

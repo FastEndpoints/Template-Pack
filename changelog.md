@@ -1,4 +1,2 @@
-- add rider `dotnet watch` profile
-- add https with lettuceencrypt
-- add docker compose files
 - upgrade dependencies to latest
+- remove `Xunit.Priority` package
