@@ -1,2 +1,2 @@
 - upgrade dependencies to latest
-- remove `Xunit.Priority` package
+- add reflection source generator to startup config

@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints.Testing" Version="5.30.0"/>
+        <PackageReference Include="FastEndpoints.Testing" Version="5.31.0"/>
         <PackageReference Include="FluentAssertions" Version="6.12.1"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1"/>
         <PackageReference Include="xunit" Version="2.9.2"/>

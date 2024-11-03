@@ -7,7 +7,7 @@ var bld = WebApplication.CreateBuilder(args);
 bld.Services
    .AddAuthenticationJwtBearer(o => o.SigningKey = bld.Configuration["Auth:SigningKey"])
    .AddAuthorization()
-   .AddFastEndpoints(o => o.SourceGeneratorDiscoveredTypes.AddRange(DiscoveredTypes.All))
+   .AddFastEndpoints(o => o.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All)
    .AddJobQueues<JobRecord, JobStorageProvider>()
    .AddSingleton<IAmazonSimpleEmailServiceV2>(
        new AmazonSimpleEmailServiceV2Client(
@@ -36,7 +36,12 @@ var app = bld.Build();
 
 app.UseAuthentication()
    .UseAuthorization()
-   .UseFastEndpoints(c => c.Errors.UseProblemDetails());
+   .UseFastEndpoints(
+       c =>
+       {
+           c.Binding.ReflectionCache.AddFromMyProject();
+           c.Errors.UseProblemDetails();
+       });
 
 await InitDatabase(app.Configuration["Database:Name"]);
 

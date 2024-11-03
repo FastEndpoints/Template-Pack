@@ -6,22 +6,22 @@ sealed class Request
 {
     //request dto shape is dictated by front-end team
 
-    public User UserDetails { get; init; }
-    public string Email { get; init; }
-    public string BirthDay { get; init; }
-    public string Gender { get; init; }
-    public ContactDetails Contact { get; init; }
-    public AddressDetails Address { get; init; }
+    public User UserDetails { get; set; }
+    public string Email { get; set; }
+    public string BirthDay { get; set; }
+    public string Gender { get; set; }
+    public ContactDetails Contact { get; set; }
+    public AddressDetails Address { get; set; }
 
     public sealed class User
     {
-        public string FirstName { get; init; }
-        public string LastName { get; init; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 
     public sealed class ContactDetails
     {
-        public string MobileNumber { get; init; }
+        public string MobileNumber { get; set; }
         public bool Whatsapp { get; set; }
         public bool Viber { get; set; }
         public bool Telegram { get; set; }
@@ -29,10 +29,10 @@ sealed class Request
 
     public sealed class AddressDetails
     {
-        public string Street { get; init; }
-        public string City { get; init; }
-        public string State { get; init; }
-        public string ZipCode { get; init; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
     }
 
     internal sealed class Validator : Validator<Request>
