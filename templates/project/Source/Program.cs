@@ -17,4 +17,4 @@ app.UseAuthentication()
    .UseSwaggerGen();
 app.Run();
 
-public partial class Program { }
+public partial class Program;

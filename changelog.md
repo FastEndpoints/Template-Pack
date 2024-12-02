@@ -1,2 +1,2 @@
+- migrate to .net 9.0
 - upgrade dependencies to latest
-- add reflection source generator to startup config
