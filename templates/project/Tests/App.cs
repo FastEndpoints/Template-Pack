@@ -4,10 +4,10 @@ namespace Tests.SayHello;
 
 public class App : AppFixture<Program>
 {
-    protected override Task SetupAsync()
+    protected override ValueTask SetupAsync()
     {
         // place one-time setup for the fixture here
-        return Task.CompletedTask;
+        return ValueTask.CompletedTask;
     }
 
     protected override void ConfigureApp(IWebHostBuilder a)
@@ -20,9 +20,9 @@ public class App : AppFixture<Program>
         // do test service registration here
     }
 
-    protected override Task TearDownAsync()
+    protected override ValueTask TearDownAsync()
     {
         // do cleanups here
-        return Task.CompletedTask;
+        return ValueTask.CompletedTask;
     }
 }

@@ -18,7 +18,7 @@ public class Sut : AppFixture<Program>
         s.AddSingleton<IAmazonSimpleEmailServiceV2, SesClient>();
     }
 
-    protected override Task SetupAsync()
+    protected override ValueTask SetupAsync()
     {
         SignupRequest = new()
         {
@@ -45,10 +45,10 @@ public class Sut : AppFixture<Program>
             Gender = "Male"
         };
 
-        return Task.CompletedTask;
+        return ValueTask.CompletedTask;
     }
 
-    protected override async Task TearDownAsync()
+    protected override async ValueTask TearDownAsync()
     {
         await DB.DeleteAsync<Member>(MemberId);
         await DB.DeleteAsync<JobRecord>(j => j.IsComplete == true);

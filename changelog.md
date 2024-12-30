@@ -1,2 +1,2 @@
-- migrate to .net 9.0
+- migrate to xUnit v3
 - upgrade dependencies to latest
