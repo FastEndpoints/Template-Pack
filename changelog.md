@@ -1,2 +1,1 @@
-- migrate to xUnit v3
-- upgrade dependencies to latest
+- remove fluentassertions and switch to shouldly

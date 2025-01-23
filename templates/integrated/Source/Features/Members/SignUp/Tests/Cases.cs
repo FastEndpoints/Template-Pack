@@ -30,10 +30,11 @@ public class Cases(Sut App) : TestBase<Sut>
 
         var (rsp, res) = await App.Client.POSTAsync<Endpoint, Request, ProblemDetails>(req);
 
-        rsp.IsSuccessStatusCode.Should().BeFalse();
+        rsp.IsSuccessStatusCode.ShouldBeFalse();
 
         var errKeys = res.Errors.Select(e => e.Name).ToList();
-        errKeys.Should().BeEquivalentTo(
+        errKeys.ShouldBe(
+        [
             "userDetails.FirstName",
             "userDetails.LastName",
             "email",
@@ -41,7 +42,8 @@ public class Cases(Sut App) : TestBase<Sut>
             "gender",
             "contact.MobileNumber",
             "address.State",
-            "address.ZipCode");
+            "address.ZipCode"
+        ]);
     }
 
     [Fact, Priority(1)]
@@ -49,14 +51,15 @@ public class Cases(Sut App) : TestBase<Sut>
     {
         var (rsp, res) = await App.Client.POSTAsync<Endpoint, Request, Response>(App.SignupRequest);
 
-        rsp.IsSuccessStatusCode.Should().BeTrue();
-        ObjectId.TryParse(res.MemberId, out _).Should().BeTrue();
+        rsp.IsSuccessStatusCode.ShouldBeTrue();
+        ObjectId.TryParse(res.MemberId, out _).ShouldBeTrue();
         App.MemberId = res.MemberId;
-        res.MemberNumber.Should().BeOfType(typeof(ulong)).And.BeGreaterThan(0);
+        res.MemberNumber.ShouldBeOfType<ulong>();
+        res.MemberNumber.ShouldBeGreaterThan(0UL);
 
         var actual = await DB.Find<Member>()
                              .MatchID(App.MemberId)
-                             .ExecuteSingleAsync();
+                             .ExecuteSingleAsync(Cancellation);
 
         var expected = new Member
         {
@@ -78,10 +81,10 @@ public class Cases(Sut App) : TestBase<Sut>
             MobileNumber = App.SignupRequest.Contact.MobileNumber
         };
 
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
 
         var fakeSesClient = (SesClient)App.Services.GetRequiredService<IAmazonSimpleEmailServiceV2>();
-        (await fakeSesClient.EmailReceived(App.MemberId)).Should().BeTrue();
+        (await fakeSesClient.EmailReceived(App.MemberId)).ShouldBeTrue();
     }
 
     [Fact, Priority(2)]
@@ -89,11 +92,9 @@ public class Cases(Sut App) : TestBase<Sut>
     {
         var (rsp, res) = await App.Client.POSTAsync<Endpoint, Request, ProblemDetails>(App.SignupRequest);
 
-        rsp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        rsp.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
 
         var errKeys = res.Errors.Select(e => e.Name).ToList();
-        errKeys.Should().BeEquivalentTo(
-            "email",
-            "contact.MobileNumber");
+        errKeys.ShouldBe(["email", "contact.MobileNumber"]);
     }
 }

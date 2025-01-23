@@ -7,6 +7,6 @@ public class Tests : TestClass<App>
     [Fact]
     public void Sample_Test()
     {
-        (1 + 1).Should().Be(2);
+        (1 + 1).ShouldBe(2);
     }
 }

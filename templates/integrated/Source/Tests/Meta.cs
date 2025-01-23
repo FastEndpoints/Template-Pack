@@ -1,3 +1,3 @@
 ﻿global using FastEndpoints.Testing;
-global using FluentAssertions;
+global using Shouldly;
 global using Xunit;

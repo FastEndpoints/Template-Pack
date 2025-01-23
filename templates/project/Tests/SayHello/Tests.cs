@@ -14,9 +14,9 @@ public class Tests(App App) : TestBase<App>
                                  LastName = "y"
                              });
 
-        rsp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        res.Errors.Count().Should().Be(2);
-        res.Errors.Select(e => e.Name).Should().Equal("firstName", "lastName");
+        rsp.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
+        res.Errors.Count().ShouldBe(2);
+        res.Errors.Select(e => e.Name).ShouldBe(["firstName", "lastName"]);
     }
 
     [Fact, Priority(2)]
@@ -29,7 +29,7 @@ public class Tests(App App) : TestBase<App>
                                  LastName = "Kelso"
                              });
 
-        rsp.StatusCode.Should().Be(HttpStatusCode.OK);
-        res.Message.Should().Be("Hello Mike Kelso...");
+        rsp.StatusCode.ShouldBe(HttpStatusCode.OK);
+        res.Message.ShouldBe("Hello Mike Kelso...");
     }
 }
