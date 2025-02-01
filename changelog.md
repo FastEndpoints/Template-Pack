@@ -1,1 +1,2 @@
 - remove fluentassertions and switch to shouldly
+- upgrade dependencies
