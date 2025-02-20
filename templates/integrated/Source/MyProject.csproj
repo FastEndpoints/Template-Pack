@@ -5,34 +5,31 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
-        <NoWarn>CS1591;CA2016</NoWarn>
+        <NoWarn>CS1591;CA2016;CS7022</NoWarn>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AWSSDK.SimpleEmailV2" Version="3.7.407.6" />
+        <PackageReference Include="AWSSDK.SimpleEmailV2" Version="3.7.408"/>
         <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
-        <PackageReference Include="FastEndpoints" Version="5.34.0" />
-        <PackageReference Include="FastEndpoints.Generator" Version="5.34.0" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
-        <PackageReference Include="FastEndpoints.Security" Version="5.34.0" />
-        <PackageReference Include="FastEndpoints.Swagger" Version="5.34.0" />
+        <PackageReference Include="FastEndpoints" Version="5.34.0"/>
+        <PackageReference Include="FastEndpoints.Generator" Version="5.34.0" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="FastEndpoints.Security" Version="5.34.0"/>
+        <PackageReference Include="FastEndpoints.Swagger" Version="5.34.0"/>
         <PackageReference Include="LettuceEncrypt" Version="1.3.3"/>
-        <PackageReference Include="MessagePack" Version="3.1.2" />
-        <PackageReference Include="MongoDB.Entities" Version="24.1.0"/>
+        <PackageReference Include="MessagePack" Version="3.1.3"/>
+        <PackageReference Include="MongoDB.Entities" Version="24.1.1"/>
     </ItemGroup>
 
     <!-- exclude test related code from release build -->
-    <PropertyGroup>
-        <GenerateProgramFile>false</GenerateProgramFile>
-    </PropertyGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <PackageReference Include="FakeItEasy" Version="8.3.0"/>
-        <PackageReference Include="FastEndpoints.Testing" Version="5.34.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0"/>
-        <PackageReference Include="Shouldly" Version="4.3.0" />
-        <PackageReference Include="xunit.v3" Version="1.0.1" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="3.0.1" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
-        <PackageReference Include="coverlet.collector" Version="6.0.4" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+        <PackageReference Include="FastEndpoints.Testing" Version="5.34.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0"/>
+        <PackageReference Include="Shouldly" Version="4.3.0"/>
+        <PackageReference Include="xunit.v3" Version="1.1.0"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="coverlet.collector" Version="6.0.4" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
         <Content Update="Tests\xunit.runner.json" TargetPath="xunit.runner.json"/>
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
@@ -43,7 +40,7 @@
 
     <PropertyGroup>
         <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
-        <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0-alpine</ContainerBaseImage>
+        <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:9.0-alpine</ContainerBaseImage>
         <ContainerRegistry>sjc.vultrcr.com</ContainerRegistry>
         <ContainerRepository>MyProject/Api</ContainerRepository>
         <ContainerImageTag>latest</ContainerImageTag>

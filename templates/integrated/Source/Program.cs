@@ -2,6 +2,10 @@ using Amazon;
 using Amazon.SimpleEmailV2;
 using Dom;
 using LettuceEncrypt;
+using Xunit.Runner.InProc.SystemConsole;
+
+if (args.Contains("@@")) // this is a 'dotnet test' run
+    return await ConsoleRunner.Run(args);
 
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
@@ -11,9 +15,9 @@ bld.Services
    .AddJobQueues<JobRecord, JobStorageProvider>()
    .AddSingleton<IAmazonSimpleEmailServiceV2>(
        new AmazonSimpleEmailServiceV2Client(
-           awsAccessKeyId: bld.Configuration["Email:ApiKey"],
-           awsSecretAccessKey: bld.Configuration["Email:ApiSecret"],
-           region: RegionEndpoint.USEast1));
+           bld.Configuration["Email:ApiKey"],
+           bld.Configuration["Email:ApiSecret"],
+           RegionEndpoint.USEast1));
 
 if (bld.Environment.IsProduction())
 {
@@ -56,6 +60,8 @@ if (!app.Environment.IsProduction())
     app.UseSwaggerGen(uiConfig: u => u.DeActivateTryItOut());
 
 app.Run();
+
+return 0;
 
 async Task InitDatabase(string? dbName)
 {

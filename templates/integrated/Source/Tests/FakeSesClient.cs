@@ -246,6 +246,11 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
     public Task<PutAccountVdmAttributesResponse> PutAccountVdmAttributesAsync(PutAccountVdmAttributesRequest request, CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
+    public Task<PutConfigurationSetArchivingOptionsResponse> PutConfigurationSetArchivingOptionsAsync(
+        PutConfigurationSetArchivingOptionsRequest request,
+        CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
     public Task<PutConfigurationSetDeliveryOptionsResponse> PutConfigurationSetDeliveryOptionsAsync(PutConfigurationSetDeliveryOptionsRequest request,
                                                                                                     CancellationToken cancellationToken = default)
         => throw new NotImplementedException();

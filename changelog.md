@@ -1,2 +1,2 @@
-- remove fluentassertions and switch to shouldly
-- upgrade dependencies
+- fix: integrated test project failed to discover tests when doing `dotnet test` and when run via visual studio
+- upgrade dependencies to latest
