@@ -70,5 +70,3 @@ async Task InitDatabase(string? dbName)
     await DB.MigrateAsync();
     await Notification.Initialize();
 }
-
-public partial class Program;

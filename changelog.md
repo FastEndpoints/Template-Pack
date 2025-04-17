@@ -1,2 +1,2 @@
-- fix: integrated test project failed to discover tests when doing `dotnet test` and when run via visual studio
+- move partial `program` class
 - upgrade dependencies to latest
