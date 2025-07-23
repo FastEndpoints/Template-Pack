@@ -10,7 +10,7 @@ sealed class Endpoint : Endpoint<Request, Response>
 
     public override async Task HandleAsync(Request r, CancellationToken c)
     {
-        await SendAsync(new()
+        await Send.OkAsync(new()
         {
             Message = $"Hello {r.FirstName} {r.LastName}..."
         });

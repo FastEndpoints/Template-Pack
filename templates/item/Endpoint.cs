@@ -20,6 +20,6 @@ sealed class Endpoint : Endpoint<Request, Response>
 
     public override Task HandleAsync(Request req, CancellationToken ct)
     {
-        return SendOkAsync(Response, ct);
+        return Send.OkAsync(Response, ct);
     }
 }

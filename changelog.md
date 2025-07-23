@@ -1,2 +1,2 @@
-- move partial `program` class
 - upgrade dependencies to latest
+- enable Microsoft Testing Platform for `feproj`

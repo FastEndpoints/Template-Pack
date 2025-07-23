@@ -32,7 +32,7 @@ sealed class Endpoint : Endpoint<Request, Response, Mapper>
              .Merge("{TrackingId}", member.ID)
              .AddToSendingQueueAsync();
 
-        await SendAsync(
+        await Send.OkAsync(
             new()
             {
                 MemberId = member.ID,

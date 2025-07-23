@@ -2,7 +2,7 @@
 
     <PropertyGroup>
 
-        <Version>1.7.7</Version>
+        <Version>1.8.0</Version>
 
         <PackageType>Template</PackageType>
         <PackageId>FastEndpoints.TemplatePack</PackageId>
