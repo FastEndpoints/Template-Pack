@@ -1,2 +1,2 @@
-- upgrade dependencies to latest
-- enable Microsoft Testing Platform for `feproj`
+- fix `Microsoft Testing Platform` support
+- remove corvelette collector from test project
