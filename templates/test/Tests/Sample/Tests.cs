@@ -1,6 +1,6 @@
 namespace Tests.Sample;
 
-public class App : AppFixture<Program> {}
+public class App : AppFixture<Program>;
 
 public class Tests : TestClass<App>
 {

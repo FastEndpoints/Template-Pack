@@ -65,6 +65,13 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
                                                                                   CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
+    public Task<CreateTenantResponse> CreateTenantAsync(CreateTenantRequest request, CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
+    public Task<CreateTenantResourceAssociationResponse> CreateTenantResourceAssociationAsync(CreateTenantResourceAssociationRequest request,
+                                                                                              CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
     public Task<DeleteConfigurationSetResponse> DeleteConfigurationSetAsync(DeleteConfigurationSetRequest request, CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
@@ -101,6 +108,13 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
 
     public Task<DeleteSuppressedDestinationResponse> DeleteSuppressedDestinationAsync(DeleteSuppressedDestinationRequest request,
                                                                                       CancellationToken cancellationToken = default)
+        => throw new NotImplementedException();
+
+    public Task<DeleteTenantResponse> DeleteTenantAsync(DeleteTenantRequest request, CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
+    public Task<DeleteTenantResourceAssociationResponse> DeleteTenantResourceAssociationAsync(DeleteTenantResourceAssociationRequest request,
+                                                                                              CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
     public Task<GetAccountResponse> GetAccountAsync(GetAccountRequest request, CancellationToken cancellationToken = default)
@@ -173,8 +187,14 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
     public Task<GetMultiRegionEndpointResponse> GetMultiRegionEndpointAsync(GetMultiRegionEndpointRequest request, CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
+    public Task<GetReputationEntityResponse> GetReputationEntityAsync(GetReputationEntityRequest request, CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
     public Task<GetSuppressedDestinationResponse> GetSuppressedDestinationAsync(GetSuppressedDestinationRequest request,
                                                                                 CancellationToken cancellationToken = default)
+        => throw new NotImplementedException();
+
+    public Task<GetTenantResponse> GetTenantAsync(GetTenantRequest request, CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
     public Task<ListConfigurationSetsResponse> ListConfigurationSetsAsync(ListConfigurationSetsRequest request, CancellationToken cancellationToken = default)
@@ -221,11 +241,23 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
     public Task<ListRecommendationsResponse> ListRecommendationsAsync(ListRecommendationsRequest request, CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
+    public Task<ListReputationEntitiesResponse> ListReputationEntitiesAsync(ListReputationEntitiesRequest request, CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
+    public Task<ListResourceTenantsResponse> ListResourceTenantsAsync(ListResourceTenantsRequest request, CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
     public Task<ListSuppressedDestinationsResponse> ListSuppressedDestinationsAsync(ListSuppressedDestinationsRequest request,
                                                                                     CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
     public Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, CancellationToken cancellationToken = default)
+        => throw new NotImplementedException();
+
+    public Task<ListTenantResourcesResponse> ListTenantResourcesAsync(ListTenantResourcesRequest request, CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
+    public Task<ListTenantsResponse> ListTenantsAsync(ListTenantsRequest request, CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
     public Task<PutAccountDedicatedIpWarmupAttributesResponse> PutAccountDedicatedIpWarmupAttributesAsync(PutAccountDedicatedIpWarmupAttributesRequest request,
@@ -246,9 +278,8 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
     public Task<PutAccountVdmAttributesResponse> PutAccountVdmAttributesAsync(PutAccountVdmAttributesRequest request, CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
-    public Task<PutConfigurationSetArchivingOptionsResponse> PutConfigurationSetArchivingOptionsAsync(
-        PutConfigurationSetArchivingOptionsRequest request,
-        CancellationToken cancellationToken = new())
+    public Task<PutConfigurationSetArchivingOptionsResponse> PutConfigurationSetArchivingOptionsAsync(PutConfigurationSetArchivingOptionsRequest request,
+                                                                                                      CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
     public Task<PutConfigurationSetDeliveryOptionsResponse> PutConfigurationSetDeliveryOptionsAsync(PutConfigurationSetDeliveryOptionsRequest request,
@@ -350,6 +381,15 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
         => throw new NotImplementedException();
 
     public Task<UpdateEmailTemplateResponse> UpdateEmailTemplateAsync(UpdateEmailTemplateRequest request, CancellationToken cancellationToken = default)
+        => throw new NotImplementedException();
+
+    public Task<UpdateReputationEntityCustomerManagedStatusResponse> UpdateReputationEntityCustomerManagedStatusAsync(
+        UpdateReputationEntityCustomerManagedStatusRequest request,
+        CancellationToken cancellationToken = new())
+        => throw new NotImplementedException();
+
+    public Task<UpdateReputationEntityPolicyResponse> UpdateReputationEntityPolicyAsync(UpdateReputationEntityPolicyRequest request,
+                                                                                        CancellationToken cancellationToken = new())
         => throw new NotImplementedException();
 
     public Endpoint DetermineServiceOperationEndpoint(AmazonWebServiceRequest request)

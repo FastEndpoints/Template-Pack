@@ -1,2 +1,2 @@
-- fix `Microsoft Testing Platform` support
-- remove corvelette collector from test project
+- upgrade to .NET 10
+- upgrade dependencies to latest
