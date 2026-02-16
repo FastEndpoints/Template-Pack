@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "fastendpoints.generator.cli": {
+      "version": "8.0.0-beta.9",
+      "commands": [
+        "fastendpoints-generator"
+      ],
+      "rollForward": false
+    }
+  }
+}

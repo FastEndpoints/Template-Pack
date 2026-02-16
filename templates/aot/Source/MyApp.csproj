@@ -10,23 +10,20 @@
         <PublishAot>true</PublishAot>
         <InvariantGlobalization>true</InvariantGlobalization>
         <GenerateSerializerContexts>true</GenerateSerializerContexts>
-    </PropertyGroup>
-
-    <PropertyGroup>
         <ExportSwaggerDocs>true</ExportSwaggerDocs>
         <SwaggerExportPath>wwwroot/openapi</SwaggerExportPath>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints" Version="7.3.0-beta.14"/>
-        <PackageReference Include="FastEndpoints.Generator" Version="7.3.0-beta.14" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
-        <PackageReference Include="FastEndpoints.Security" Version="7.3.0-beta.14"/>
-        <PackageReference Include="FastEndpoints.Swagger" Version="7.3.0-beta.14"/>
+        <PackageReference Include="FastEndpoints" Version="8.0.0-beta.9"/>
+        <PackageReference Include="FastEndpoints.Generator" Version="8.0.0-beta.9" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="FastEndpoints.Security" Version="8.0.0-beta.9"/>
+        <PackageReference Include="FastEndpoints.Swagger" Version="8.0.0-beta.9"/>
         <PackageReference Include="Scalar.AspNetCore" Version="2.12.30"/>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="wwwroot\"/>
+        <Content Remove="dotnet-tools.json"/>
     </ItemGroup>
 
 </Project>

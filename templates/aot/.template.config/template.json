@@ -4,8 +4,8 @@
   "classifications": [
     "FastEndpoints"
   ],
-  "identity": "FastEndpoints.Starter",
-  "name": "FastEndpoints Starter Project Template",
+  "identity": "FastEndpoints.NativeAotStarter",
+  "name": "FastEndpoints Starter Project Template With Native AOT Publishing",
   "shortName": "feaot",
   "tags": {
     "language": "C#",
