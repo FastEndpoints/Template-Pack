@@ -1,2 +1,2 @@
-- upgrade to .NET 10
+- add native aot project
 - upgrade dependencies to latest
