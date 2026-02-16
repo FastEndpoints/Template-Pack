@@ -1,4 +1,4 @@
-var bld = WebApplication.CreateBuilder(args);
+var bld = WebApplication.CreateSlimBuilder(args);
 bld.Services
    .AddAuthenticationJwtBearer(s => s.SigningKey = bld.Configuration["Auth:JwtKey"])
    .AddAuthorization()
