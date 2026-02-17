@@ -1,4 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup Condition="$(Configuration) == 'Release'">
+        <PublishAot>true</PublishAot>
+    </PropertyGroup>
 
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
@@ -7,7 +11,6 @@
         <OutputType>Exe</OutputType>
         <NoWarn>CS1591;CA2016</NoWarn>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PublishAot>true</PublishAot>
         <InvariantGlobalization>true</InvariantGlobalization>
         <GenerateSerializerContexts>true</GenerateSerializerContexts>
         <ExportSwaggerDocs>true</ExportSwaggerDocs>
