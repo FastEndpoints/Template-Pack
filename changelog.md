@@ -1,2 +1,3 @@
 - add native aot project
+- switch all solution files to slnx
 - upgrade dependencies to latest

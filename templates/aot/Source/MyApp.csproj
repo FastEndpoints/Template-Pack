@@ -18,10 +18,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints" Version="8.0.0-beta.9"/>
-        <PackageReference Include="FastEndpoints.Generator" Version="8.0.0-beta.9" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
-        <PackageReference Include="FastEndpoints.Security" Version="8.0.0-beta.9"/>
-        <PackageReference Include="FastEndpoints.Swagger" Version="8.0.0-beta.9"/>
+        <PackageReference Include="FastEndpoints" Version="8.0.0-beta.10"/>
+        <PackageReference Include="FastEndpoints.Generator" Version="8.0.0-beta.10" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="FastEndpoints.Security" Version="8.0.0-beta.10"/>
+        <PackageReference Include="FastEndpoints.Swagger" Version="8.0.0-beta.10"/>
         <PackageReference Include="Scalar.AspNetCore" Version="2.12.30"/>
     </ItemGroup>
 

@@ -15,6 +15,11 @@ dotnet new install FastEndpoints.TemplatePack
 dotnet new feproj -n MyAwesomeProject
 ```
 
+## Scaffold Minimalist Native AOT Starter Project
+```cs
+dotnet new feaot -n MyAwesomeProject
+```
+
 ## Scaffold Starter Project With Integrated Testing
 ```cs
 dotnet new feintproj -n MyAwesomeProject
