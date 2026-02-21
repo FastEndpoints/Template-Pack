@@ -165,6 +165,9 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
                                                                                   CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
+    public Task<GetEmailAddressInsightsResponse> GetEmailAddressInsightsAsync(GetEmailAddressInsightsRequest request, CancellationToken cancellationToken = new CancellationToken())
+        => throw new NotImplementedException();
+
     public Task<GetEmailIdentityResponse> GetEmailIdentityAsync(GetEmailIdentityRequest request, CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 

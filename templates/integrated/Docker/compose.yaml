@@ -15,7 +15,7 @@ services:
     - ./secrets
 
   db:
-    image: mongo:7.0.12
+    image: mongo
     network_mode: host
     restart: no
     command: --quiet --directoryperdb --replSet RepSet
