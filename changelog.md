@@ -1,1 +1,1 @@
-- upgrade dependencies in `feproj` which was missed in the earlier release
+- upgrade FastEndpoints to latest `v8.0.1`
