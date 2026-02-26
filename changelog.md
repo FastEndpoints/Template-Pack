@@ -1,3 +1,1 @@
-- add native aot project
-- switch all solution files to slnx
-- upgrade dependencies to latest
+- upgrade dependencies in `feproj` which was missed in the earlier release
