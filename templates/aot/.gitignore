@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 
 .idea/.idea.Ctma/.idea/workspace.xml
+
+dotnet-tools.json

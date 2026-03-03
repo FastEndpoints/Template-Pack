@@ -7,9 +7,15 @@
         <OutputType>Exe</OutputType>
     </PropertyGroup>
 
+    <!-- do 'dotnet test -p:NativeAotTestMode=true' from the commandline to run the tests in native aot black-box testing mode -->
+    <!-- or change 'true' to '' below to make your ide test runner do aot black-box testing -->
+    <ItemGroup Condition="'$(NativeAotTestMode)' == 'true'">
+        <RuntimeHostConfigurationOption Include="NativeAotTestMode" Value="true"/>
+    </ItemGroup>
+
     <ItemGroup>
-        <PackageReference Include="FastEndpoints.Testing" Version="8.0.1"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1"/>
+        <PackageReference Include="FastEndpoints.Testing" Version="8.1.0-beta.9"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="xunit.v3" Version="3.2.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>

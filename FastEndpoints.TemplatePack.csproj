@@ -2,7 +2,7 @@
 
     <PropertyGroup>
 
-        <Version>1.10.2</Version>
+        <Version>1.11.0-beta.1</Version>
 
         <PackageType>Template</PackageType>
         <PackageId>FastEndpoints.TemplatePack</PackageId>

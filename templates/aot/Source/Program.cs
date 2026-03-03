@@ -19,6 +19,8 @@ app.UseStaticFiles()
 
 await app.ExportSwaggerDocsAndExitAsync("v1");
 
+app.MapGet("/healthy", () => Results.Ok()).ExcludeFromDescription();
+
 app.UseOpenApi(c => c.Path = "/openapi/{documentName}.json");
 app.MapScalarApiReference(o => o.AddDocument("v1"));
 

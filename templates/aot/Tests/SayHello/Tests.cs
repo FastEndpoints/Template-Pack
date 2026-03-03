@@ -22,14 +22,16 @@ public class Tests(App App) : TestBase<App>
     [Fact, Priority(2)]
     public async Task Valid_User_Input()
     {
-        var (rsp, res) = await App.Client.POSTAsync<Endpoint, Request, Response>(
-                             new()
-                             {
-                                 FirstName = "Mike",
-                                 LastName = "Kelso"
-                             });
+        var (rsp, res, err) = await App.Client.POSTAsync<Endpoint, Request, Response>(
+                                  new()
+                                  {
+                                      FirstName = "Mike",
+                                      LastName = "Kelso"
+                                  });
 
-        rsp.StatusCode.ShouldBe(HttpStatusCode.OK);
+        if (!rsp.IsSuccessStatusCode)
+            Assert.Fail(err);
+
         res.Message.ShouldBe("Hello Mike Kelso...");
     }
 }

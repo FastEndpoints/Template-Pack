@@ -1,1 +1,2 @@
-- upgrade FastEndpoints to latest `v8.0.1`
+- use dual mode testing for aot project
+- upgrade FastEndpoints to latest
