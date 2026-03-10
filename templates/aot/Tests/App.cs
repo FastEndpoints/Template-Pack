@@ -8,7 +8,6 @@ public class App : AppFixture<Program>
     protected override ValueTask SetupAsync()
     {
         // place one-time setup for the fixture here.
-
         return ValueTask.CompletedTask;
     }
 
@@ -35,7 +34,6 @@ public class App : AppFixture<Program>
         o.EnvironmentVariables["ASPNETCORE_ENVIRONMENT"] = "Testing";
 
         // make routeless test helpers use the same serializer settings as the app
-
         new Config().Serializer.Options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 
         return ValueTask.CompletedTask;
@@ -44,7 +42,6 @@ public class App : AppFixture<Program>
     protected override ValueTask TearDownAsync()
     {
         // do cleanups here
-
         return ValueTask.CompletedTask;
     }
 }
