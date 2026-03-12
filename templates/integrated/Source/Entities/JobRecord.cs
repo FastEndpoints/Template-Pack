@@ -25,6 +25,8 @@ sealed class JobRecord : Entity, IJobStorageRecord
     [IgnoreDefault]
     public DateTime? CancelledOn { get; set; }
 
+    public DateTime DequeueAfter { get; set; }
+
     static JobRecord()
     {
         MessagePackSerializer.DefaultOptions = MessagePack.Resolvers.ContractlessStandardResolver.Options;

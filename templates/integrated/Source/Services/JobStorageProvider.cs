@@ -5,7 +5,9 @@ namespace MyProject;
 
 sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
 {
-    public async Task<IEnumerable<JobRecord>> GetNextBatchAsync(PendingJobSearchParams<JobRecord> p)
+    public bool DistributedJobProcessingEnabled => false;
+
+    public async Task<ICollection<JobRecord>> GetNextBatchAsync(PendingJobSearchParams<JobRecord> p)
     {
         return await DB.Find<JobRecord>()
                        .Match(p.Match)
