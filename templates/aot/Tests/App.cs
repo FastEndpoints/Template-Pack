@@ -27,7 +27,6 @@ public class App : AppFixture<Program>
     {
         // settings for building and running a native aot black-box instance.
         // all settings are optional. customization only needed if auto management fails.
-
         o.BuildTimeoutMinutes = 1;
         o.HealthEndpointPath = "/healthy";
         o.ReadyTimeoutSeconds = 5;

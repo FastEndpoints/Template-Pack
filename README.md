@@ -3,7 +3,7 @@ Template pack for FastEndpoints to quickly scaffold feature file sets and starte
 
 ### Report an Issue
 
-[Issues are tracked in the main FastEndpoints repo](https://github.com/FastEndpoints/FastEndpoints/issues). Please open an issue there.
+Issues are tracked in the main FastEndpoints repo. Please [open an issue there](https://github.com/FastEndpoints/FastEndpoints/issues).
 
 ## Install
 ```cs

@@ -1,2 +1,2 @@
 - use dual mode testing for aot project
-- upgrade FastEndpoints to latest
+- upgrade dependencies to latest
