@@ -11,12 +11,12 @@ namespace MyApp;
 /// <summary>
 /// Extension methods for adding generated serializer contexts.
 /// </summary>
-internal static class FastEndpointsSerializerExtensions
+public static class FastEndpointsSerializerExtensions
 {
     /// <summary>
     /// Adds the generated JSON serializer context to the JSON serializer options.
     /// </summary>
-   internal static JsonSerializerOptions AddSerializerContextsFromMyApp(this JsonSerializerOptions options)
+    public static JsonSerializerOptions AddSerializerContextsFromMyApp(this JsonSerializerOptions options)
     {
         var context = new GeneratedSerializerContext(new(options));
         options.TypeInfoResolverChain.Insert(0, context);
