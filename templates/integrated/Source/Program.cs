@@ -67,9 +67,7 @@ return 0;
 async Task InitDatabase(string? dbName)
 {
     ArgumentNullException.ThrowIfNull(dbName);
-
     //await DB.InitAsync(dbName, MongoClientSettings.FromConnectionString("mongodb://admin:password@localhost:27017/?authSource=admin"));
-
     await DB.InitAsync(dbName);
     await DB.MigrateAsync();
     await Notification.Initialize();
