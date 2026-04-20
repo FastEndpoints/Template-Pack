@@ -1,10 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <PropertyGroup Condition="$(Configuration) == 'Release'">
-        <PublishAot>true</PublishAot>
-    </PropertyGroup>
-
     <PropertyGroup>
+        <PublishAot>true</PublishAot>
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -13,20 +10,28 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <InvariantGlobalization>true</InvariantGlobalization>
         <GenerateSerializerContexts>true</GenerateSerializerContexts>
-        <ExportSwaggerDocs>true</ExportSwaggerDocs>
-        <SwaggerExportPath>wwwroot/openapi</SwaggerExportPath>
+        <ExportOpenApiDocs>true</ExportOpenApiDocs>
+        <OpenApiExportPath>wwwroot/openapi</OpenApiExportPath>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints" Version="8.1.0"/>
-        <PackageReference Include="FastEndpoints.Generator" Version="8.1.0" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
-        <PackageReference Include="FastEndpoints.Security" Version="8.1.0"/>
-        <PackageReference Include="FastEndpoints.Swagger" Version="8.1.0"/>
-        <PackageReference Include="Scalar.AspNetCore" Version="2.13.20"/>
+        <PackageReference Include="FastEndpoints" Version="8.2.0-beta.15"/>
+        <PackageReference Include="FastEndpoints.Generator" Version="8.2.0-beta.15" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="FastEndpoints.Security" Version="8.2.0-beta.15"/>
+        <PackageReference Include="FastEndpoints.OpenApi" Version="8.2.0-beta.15"/>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.14.1"/>
     </ItemGroup>
 
     <ItemGroup>
         <Content Remove="dotnet-tools.json"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="wwwroot\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\openapi\v1.json" />
     </ItemGroup>
 
 </Project>

@@ -1,2 +1,2 @@
-- use dual mode testing for aot project
+- migrate to `FastEndpoints.OpenApi`
 - upgrade dependencies to latest

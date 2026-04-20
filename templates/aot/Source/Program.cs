@@ -3,11 +3,12 @@ bld.Services
    .AddAuthenticationJwtBearer(s => s.SigningKey = bld.Configuration["Auth:JwtKey"])
    .AddAuthorization()
    .AddFastEndpoints(o => o.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All)
-   .SwaggerDocument();
+   .OpenApiDocument(o => o.DocumentName = "v1");
 
 var app = bld.Build();
-app.UseStaticFiles()
-   .UseAuthentication()
+app.MapGet("/healthy", () => Results.Ok()).ExcludeFromDescription();
+app.MapScalarApiReference(o => o.AddDocument("v1"));
+app.UseAuthentication()
    .UseAuthorization()
    .UseFastEndpoints(
        c =>
@@ -17,11 +18,11 @@ app.UseStaticFiles()
            c.Errors.UseProblemDetails();
        });
 
-await app.ExportSwaggerDocsAndExitAsync("v1");
+await app.ExportOpenApiDocsAndExitAsync("v1"); //export openapi json during aot publish
 
-app.MapGet("/healthy", () => Results.Ok()).ExcludeFromDescription();
-
-app.UseOpenApi(c => c.Path = "/openapi/{documentName}.json");
-app.MapScalarApiReference(o => o.AddDocument("v1"));
+if (app.Environment.IsDevelopment())
+    app.MapOpenApi(); //serve live openapi json during development
+else
+    app.UseStaticFiles(); //serve exported openapi json in production
 
 app.Run();

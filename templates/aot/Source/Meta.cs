@@ -1,6 +1,6 @@
 ﻿global using FastEndpoints;
 global using FastEndpoints.Security;
-global using FastEndpoints.Swagger;
+global using FastEndpoints.OpenApi;
 global using Scalar.AspNetCore;
 global using MyApp;
 using System.Runtime.CompilerServices;
