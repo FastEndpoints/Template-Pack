@@ -28,13 +28,12 @@ if (bld.Environment.IsProduction())
 }
 else
 {
-    bld.Services.SwaggerDocument(
-        d => d.DocumentSettings =
-                 s =>
-                 {
-                     s.DocumentName = "v0";
-                     s.Version = "0.0.0";
-                 });
+    bld.Services.OpenApiDocument(
+        o =>
+        {
+            o.DocumentName = "v0";
+            o.Version = "0.0.0";
+        });
 }
 
 var app = bld.Build();
@@ -58,7 +57,7 @@ app.UseJobQueues(
     });
 
 if (!app.Environment.IsProduction())
-    app.UseSwaggerGen(uiConfig: u => u.DeActivateTryItOut());
+    app.MapOpenApi();
 
 app.Run();
 
@@ -67,8 +66,7 @@ return 0;
 async Task InitDatabase(string? dbName)
 {
     ArgumentNullException.ThrowIfNull(dbName);
-    //await DB.InitAsync(dbName, MongoClientSettings.FromConnectionString("mongodb://admin:password@localhost:27017/?authSource=admin"));
-    await DB.InitAsync(dbName);
+    await DB.InitAsync(dbName); //await DB.InitAsync(dbName, MongoClientSettings.FromConnectionString("mongodb://admin:password@localhost:27017/?authSource=admin"));
     await DB.MigrateAsync();
     await Notification.Initialize();
 }
