@@ -57,9 +57,9 @@ public class Cases(Sut App) : TestBase<Sut>
         res.MemberNumber.ShouldBeOfType<ulong>();
         res.MemberNumber.ShouldBeGreaterThan(0UL);
 
-        var actual = await DB.Find<Member>()
-                             .MatchID(App.MemberId)
-                             .ExecuteSingleAsync(Cancellation);
+        var actual = await App.Services.GetRequiredService<DB>().Find<Member>()
+                              .MatchID(App.MemberId)
+                              .ExecuteSingleAsync(Cancellation);
 
         var expected = new Member
         {

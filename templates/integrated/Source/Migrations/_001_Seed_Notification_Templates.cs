@@ -7,7 +7,8 @@ internal sealed class _001_Seed_Notification_Templates : IMigration
 {
     public async Task UpgradeAsync()
     {
-        await new[] {
+        await DB.Default.SaveAsync(new[]
+        {
             new NotificationTemplate
             {
                 ID = NotificationType.MemberWelcome,
@@ -87,6 +88,6 @@ internal sealed class _001_Seed_Notification_Templates : IMigration
                             """,
                 SmsBody = "A new member [{MemberName}] has signed up on MyProject. Please review!"
             }
-        }.SaveAsync();
+        });
     }
 }

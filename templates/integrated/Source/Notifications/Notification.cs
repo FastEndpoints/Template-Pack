@@ -10,9 +10,9 @@ sealed partial class Notification
     static readonly Regex _rx = MergeFieldRx();
     static readonly Dictionary<string, NotificationTemplate> _templates = new();
 
-    public static async Task Initialize()
+    public static async Task Initialize(DB db)
     {
-        foreach (var t in await DB.Find<NotificationTemplate>().Match(_ => true).ExecuteAsync())
+        foreach (var t in await db.Find<NotificationTemplate>().Match(_ => true).ExecuteAsync())
             _templates.Add(t.ID, t);
     }
 

@@ -50,7 +50,9 @@ public class Sut : AppFixture<Program>
 
     protected override async ValueTask TearDownAsync()
     {
-        await DB.DeleteAsync<Member>(MemberId);
-        await DB.DeleteAsync<JobRecord>(j => j.IsComplete == true);
+        var db = Services.GetRequiredService<DB>();
+
+        await db.DeleteAsync<Member>(MemberId);
+        await db.DeleteAsync<JobRecord>(j => j.IsComplete == true);
     }
 }

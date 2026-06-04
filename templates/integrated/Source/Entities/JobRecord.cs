@@ -1,4 +1,5 @@
 ﻿using MessagePack;
+using MessagePack.Resolvers;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -27,14 +28,16 @@ sealed class JobRecord : Entity, IJobStorageRecord
 
     static JobRecord()
     {
-        MessagePackSerializer.DefaultOptions = MessagePack.Resolvers.ContractlessStandardResolver.Options;
-        _ = DB.Index<JobRecord>()
-              .Key(r => r.QueueID, KeyType.Ascending)
-              .Key(r => r.IsComplete, KeyType.Ascending)
-              .Key(r => r.ExecuteAfter, KeyType.Ascending)
-              .Key(r => r.ExpireOn, KeyType.Ascending)
-              .CreateAsync(); //covers job storage provider's GetNextBatchAsync query
+        MessagePackSerializer.DefaultOptions = ContractlessStandardResolver.Options;
     }
+
+    internal static Task CreateIndexesAsync(DB db)
+        => db.Index<JobRecord>()
+             .Key(r => r.QueueID, KeyType.Ascending)
+             .Key(r => r.IsComplete, KeyType.Ascending)
+             .Key(r => r.ExecuteAfter, KeyType.Ascending)
+             .Key(r => r.ExpireOn, KeyType.Ascending)
+             .CreateAsync(); //covers job storage provider's GetNextBatchAsync query
 
     public byte[] CommandMsgPack { get; set; }
 

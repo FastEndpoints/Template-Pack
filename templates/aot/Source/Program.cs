@@ -2,7 +2,7 @@ var bld = WebApplication.CreateSlimBuilder(args);
 bld.Services
    .AddAuthenticationJwtBearer(s => s.SigningKey = bld.Configuration["Auth:JwtKey"])
    .AddAuthorization()
-   .AddFastEndpoints(o => o.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All)
+   .AddFastEndpoints(DiscoveredTypes.All)
    .OpenApiDocument(o => o.DocumentName = "v1");
 
 var app = bld.Build();

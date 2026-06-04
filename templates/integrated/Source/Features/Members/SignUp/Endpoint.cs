@@ -1,6 +1,8 @@
-﻿namespace Members.Signup;
+﻿using Dom;
 
-sealed class Endpoint : Endpoint<Request, Response, Mapper>
+namespace Members.Signup;
+
+sealed class Endpoint(DB db) : Endpoint<Request, Response, Mapper>
 {
     public override void Configure()
     {
@@ -13,10 +15,10 @@ sealed class Endpoint : Endpoint<Request, Response, Mapper>
     {
         var member = Map.ToEntity(r);
 
-        member.MemberNumber = await DB.NextSequentialNumberAsync<Dom.Member>(c) + 100;
+        member.MemberNumber = await db.NextSequentialNumberAsync<Member>(c) + 100;
         member.SignupDate = DateOnly.FromDateTime(DateTime.UtcNow);
 
-        await member.SaveAsync(cancellation: c);
+        await db.SaveAsync(member, cancellation: c);
 
         //todo: send email to member
 

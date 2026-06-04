@@ -4,7 +4,7 @@ var bld = WebApplication.CreateBuilder(args);
 bld.Services
    .AddAuthenticationJwtBearer(s => s.SigningKey = bld.Configuration["Auth:JwtKey"])
    .AddAuthorization()
-   .AddFastEndpoints(o => o.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All)
+   .AddFastEndpoints(DiscoveredTypes.All)
    .OpenApiDocument();
 
 var app = bld.Build();

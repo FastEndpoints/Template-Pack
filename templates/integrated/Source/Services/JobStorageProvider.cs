@@ -3,13 +3,13 @@ using Order = MongoDB.Entities.Order;
 
 namespace MyProject;
 
-sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
+sealed class JobStorageProvider(DB db) : IJobStorageProvider<JobRecord>
 {
     public bool DistributedJobProcessingEnabled => false;
 
     public async Task<ICollection<JobRecord>> GetNextBatchAsync(PendingJobSearchParams<JobRecord> p)
     {
-        return await DB.Find<JobRecord>()
+        return await db.Find<JobRecord>()
                        .Match(p.Match)
                        .Sort(r => r.ID, Order.Ascending)
                        .Limit(p.Limit)
@@ -18,7 +18,7 @@ sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
 
     public Task MarkJobAsCompleteAsync(JobRecord r, CancellationToken ct)
     {
-        return DB.Update<JobRecord>()
+        return db.Update<JobRecord>()
                  .MatchID(r.ID)
                  .Modify(jr => jr.IsComplete, true)
                  .ExecuteAsync(ct);
@@ -26,7 +26,7 @@ sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
 
     public Task CancelJobAsync(Guid trackingId, CancellationToken ct)
     {
-        return DB.Update<JobRecord>()
+        return db.Update<JobRecord>()
                  .Match(r => r.TrackingID == trackingId)
                  .Modify(jr => jr.IsComplete, true)
                  .ExecuteAsync(ct);
@@ -41,13 +41,13 @@ sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
             r.CancelledOn = DateTime.UtcNow;
             r.FailureReason = exception.Message;
 
-            return r.SaveAsync(cancellation: ct);
+            return db.SaveAsync(r, cancellation: ct);
         }
 
         var retryOn = DateTime.UtcNow.AddMinutes(1);
         var expireOn = retryOn.AddHours(4);
 
-        return DB.Update<JobRecord>()
+        return db.Update<JobRecord>()
                  .MatchID(r.ID)
                  .Modify(jr => jr.FailureReason, exception.Message) //save exception msg
                  .Modify(b => b.Inc(jr => jr.FailureCount, 1))      //increment the failure count.
@@ -57,8 +57,8 @@ sealed class JobStorageProvider : IJobStorageProvider<JobRecord>
     }
 
     public Task PurgeStaleJobsAsync(StaleJobSearchParams<JobRecord> p)
-        => DB.DeleteAsync(p.Match, cancellation: p.CancellationToken);
+        => db.DeleteAsync(p.Match, cancellation: p.CancellationToken);
 
     public Task StoreJobAsync(JobRecord r, CancellationToken ct)
-        => r.SaveAsync(cancellation: ct);
+        => db.SaveAsync(r, cancellation: ct);
 }
