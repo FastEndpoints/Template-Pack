@@ -57,11 +57,17 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "default": "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1"
           },
           "title": {
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "default": "One or more validation errors occurred."
           },
           "status": {
@@ -78,36 +84,47 @@
             "default": "0HMPNHL0JHL76:00000001"
           },
           "detail": {
-            "type": "string"
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "the details of the error"
           },
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FastEndpointsProblemDetails_Error"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "the name of the error or property of the dto that caused the error",
+                  "default": "Error or field name"
+                },
+                "reason": {
+                  "type": "string",
+                  "description": "the reason for the error",
+                  "default": "Error reason"
+                },
+                "code": {
+                  "type": [
+                    "null",
+                    "string"
+                  ],
+                  "description": "the code of the error"
+                },
+                "severity": {
+                  "type": [
+                    "null",
+                    "string"
+                  ],
+                  "description": "the severity of the error"
+                }
+              },
+              "description": "the error details object"
             }
           }
         },
-        "additionalProperties": false
-      },
-      "FastEndpointsProblemDetails_Error": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "default": "Error or field name"
-          },
-          "reason": {
-            "type": "string",
-            "default": "Error reason"
-          },
-          "code": {
-            "type": "string"
-          },
-          "severity": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
+        "description": "RFC9457 compatible problem details/ error response class. this can be used by configuring startup like so:\n```app.UseFastEndpoints(c =&gt; c.Errors.UseProblemDetails())```"
       },
       "SayHelloRequest": {
         "type": "object",
@@ -120,8 +137,7 @@
             "minLength": 5,
             "type": "string"
           }
-        },
-        "additionalProperties": false
+        }
       },
       "SayHelloResponse": {
         "type": "object",
@@ -129,8 +145,7 @@
           "message": {
             "type": "string"
           }
-        },
-        "additionalProperties": false
+        }
       }
     },
     "securitySchemes": {
