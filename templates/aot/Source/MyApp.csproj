@@ -7,6 +7,7 @@
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
         <NoWarn>CS1591;CA2016</NoWarn>
+        <EnableRequestDelegateGenerator>true</EnableRequestDelegateGenerator>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <InvariantGlobalization>true</InvariantGlobalization>
         <GenerateSerializerContexts>true</GenerateSerializerContexts>
@@ -15,23 +16,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints" Version="8.2.0-beta.50"/>
-        <PackageReference Include="FastEndpoints.Generator" Version="8.2.0-beta.50" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
-        <PackageReference Include="FastEndpoints.Security" Version="8.2.0-beta.50"/>
-        <PackageReference Include="FastEndpoints.OpenApi" Version="8.2.0-beta.50"/>
-        <PackageReference Include="Scalar.AspNetCore" Version="2.16.4"/>
+        <PackageReference Include="FastEndpoints" Version="8.2.0"/>
+        <PackageReference Include="FastEndpoints.Generator" Version="8.2.0" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="FastEndpoints.Security" Version="8.2.0"/>
+        <PackageReference Include="FastEndpoints.OpenApi" Version="8.2.0"/>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.16.5"/>
     </ItemGroup>
 
     <ItemGroup>
         <Content Remove="dotnet-tools.json"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="wwwroot\"/>
-    </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\openapi\v1.json" />
     </ItemGroup>
 
 </Project>
