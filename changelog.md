@@ -1,2 +1,2 @@
-- migrate to `FastEndpoints.OpenApi`
 - upgrade dependencies to latest
+- migrate to `xunit.v3` **4.0**

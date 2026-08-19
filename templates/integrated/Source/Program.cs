@@ -2,10 +2,10 @@ using Amazon;
 using Amazon.SimpleEmailV2;
 using Dom;
 using LettuceEncrypt;
-using Xunit.Runner.InProc.SystemConsole;
+using Xunit.MicrosoftTestingPlatform;
 
-if (args.Contains("@@")) // this is a 'dotnet test' run
-    return await ConsoleRunner.Run(args);
+if (args.Any(a => a == "dotnettestcli")) // this is a 'dotnet test' run
+    return await TestPlatformTestFramework.RunAsync(args, SelfRegisteredExtensions.AddSelfRegisteredExtensions);
 
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
