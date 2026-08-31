@@ -2,10 +2,12 @@ using Amazon;
 using Amazon.SimpleEmailV2;
 using Dom;
 using LettuceEncrypt;
-using Xunit.MicrosoftTestingPlatform;
 
-if (args.Any(a => a == "dotnettestcli")) // this is a 'dotnet test' run
-    return await TestPlatformTestFramework.RunAsync(args, SelfRegisteredExtensions.AddSelfRegisteredExtensions);
+#if DEBUG
+using MyProject.Tests;
+if (TestDiscoveryHandler.IsTestRun(args, out var testRunner))
+    return await testRunner();
+#endif
 
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
