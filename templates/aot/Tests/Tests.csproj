@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FastEndpoints.Testing" Version="8.3.0-rc.1"/>
+        <PackageReference Include="FastEndpoints.Testing" Version="8.3.0"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="xunit.v3" Version="4.0.0"/>
     </ItemGroup>
