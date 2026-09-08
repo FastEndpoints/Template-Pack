@@ -2,12 +2,10 @@ using Amazon;
 using Amazon.SimpleEmailV2;
 using Dom;
 using LettuceEncrypt;
-
-#if DEBUG
 using MyProject.Tests;
+
 if (TestDiscoveryHandler.IsTestRun(args, out var testRunner))
     return await testRunner();
-#endif
 
 var bld = WebApplication.CreateBuilder(args);
 bld.Services
