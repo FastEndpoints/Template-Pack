@@ -8,14 +8,15 @@ public static class TestDiscoveryHandler
 {
     public static bool IsTestRun(string[] args, [NotNullWhen(true)] out Func<Task<int>>? testRunner)
     {
-        if (args.Contains("@@")) // this is a 'dotnet test' run from the test explorer
+        // VS Test Explorer (VSTest) launches the exe with an xunit response file.
+        if (args is ["@@", ..])
         {
-            testRunner = () =>
-                ConsoleRunner.Run(args);
+            testRunner = () => ConsoleRunner.Run(args);
             return true;
         }
 
-        if (args.Any(a => a == "dotnettestcli")) // this is a 'dotnet test' run from the CLI
+        // `dotnet test` (MTP). The SDK passes `--server dotnettestcli` plus `--dotnet-test-pipe`.
+        if (args.Any(a => a is "--server" or "--internal-msbuild-node" or "dotnettestcli"))
         {
             testRunner = () =>
                 TestPlatformTestFramework.RunAsync(args, SelfRegisteredExtensions.AddSelfRegisteredExtensions);
