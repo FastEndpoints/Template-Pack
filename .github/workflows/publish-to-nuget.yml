@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # nuget trusted publishing (OIDC)
+      contents: write # create github release
     steps:
       - uses: actions/checkout@v7
 
@@ -19,10 +22,16 @@ jobs:
       - name: Make Nuget Packages
         run: dotnet pack FastEndpoints.TemplatePack.csproj -c Release
 
+      - name: Nuget Login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: djnitehawk # nuget.org username (not github)
+
       - name: Publish To Nuget
         run: dotnet nuget push bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
+          NUGET_AUTH_TOKEN: ${{ steps.login.outputs.NUGET_API_KEY }}
 
       - name: Create Release
         uses: softprops/action-gh-release@v3

@@ -33,7 +33,7 @@ cd <tmp-dir>/out/feproj && dotnet build && dotnet test
 
 1. Bump `<Version>` in `FastEndpoints.TemplatePack.csproj`.
 2. Replace `changelog.md` with this release's notes (it becomes the GitHub release body; it is not cumulative).
-3. Push a `v*` tag. `publish-to-nuget.yml` packs from a clean checkout, pushes to NuGet (`NUGET_KEY` secret), and creates the GitHub release (skipped for tags containing `beta`).
+3. Push a `v*` tag. `publish-to-nuget.yml` packs from a clean checkout, pushes to NuGet via trusted publishing (`NuGet/login` OIDC exchange for a 1-hour key; needs a nuget.org trusted publishing policy for this repo and workflow file under the package owner, plus the `user` input on the login step set to a nuget.org username, not an email or GitHub login), and creates the GitHub release (skipped for tags containing `beta`).
 
 ## Sources
 - `.github/workflows/publish-to-nuget.yml`
