@@ -1,7 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "FastEndpoints",
-  "classifications": [ "FastEndpoints" ],
+  "classifications": [
+    "FastEndpoints"
+  ],
   "identity": "FastEndpoints.FeatureFileSet",
   "name": "FastEndpoints Feature Fileset",
   "shortName": "feat",
@@ -82,7 +84,11 @@
           ]
         },
         {
-          "exclude": [ ".idea/**", "*.csproj", "Properties/**" ]
+          "exclude": [
+            ".idea/**",
+            "*.csproj",
+            "Properties/**"
+          ]
         }
       ]
     }

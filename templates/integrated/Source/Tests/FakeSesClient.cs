@@ -279,6 +279,10 @@ class FakeSesClient : IAmazonSimpleEmailServiceV2
                                                                                                           CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 
+    public Task<PutAccountDeliveryAttributesResponse> PutAccountDeliveryAttributesAsync(PutAccountDeliveryAttributesRequest request,
+                                                                                        CancellationToken cancellationToken = default)
+        => throw new NotImplementedException();
+
     public Task<PutAccountDetailsResponse> PutAccountDetailsAsync(PutAccountDetailsRequest request, CancellationToken cancellationToken = default)
         => throw new NotImplementedException();
 

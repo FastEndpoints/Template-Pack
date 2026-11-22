@@ -2,7 +2,7 @@
 
     <PropertyGroup>
 
-        <Version>1.14.0</Version>
+        <Version>1.15.0</Version>
 
         <PackageType>Template</PackageType>
         <PackageId>FastEndpoints.TemplatePack</PackageId>
@@ -15,7 +15,7 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
         <NoWarn>$(NoWarn);NU5128</NoWarn>
-        <NoDefaultExcludes>true</NoDefaultExcludes>        
+        <NoDefaultExcludes>true</NoDefaultExcludes>
         <PackageProjectUrl>https://fast-endpoints.com/</PackageProjectUrl>
         <RepositoryUrl>https://github.com/FastEndpoints/FastEndpoints.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -24,9 +24,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**;templates\**\.idea\**;**\.lutignore;**\*.lutconfig" />
-        <None Include="icon.png" Pack="true" PackagePath="\" />
-        <Compile Remove="**\*" />
+        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**;templates\**\.idea\**;templates\**\TestResults\**;**\.lutignore;**\*.lutconfig;**\*.DotSettings.user;**\dotnet-tools.json"/>
+        <None Include="icon.png" Pack="true" PackagePath="\"/>
+        <Compile Remove="**\*"/>
     </ItemGroup>
 
 </Project>

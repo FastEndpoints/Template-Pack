@@ -1,2 +1,4 @@
+- fix scaffolded projects not building when the project name contains `_`, `.` or `-`
+- upgrade all templates to target `.NET 11`
+- upgrade to `FastEndpoints` **v9.0**
 - upgrade dependencies to latest
-- migrate to `xunit.v3` **4.0**

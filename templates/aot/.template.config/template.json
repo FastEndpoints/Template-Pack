@@ -12,5 +12,57 @@
     "type": "project"
   },
   "sourceName": "MyApp",
-  "preferNameDirectory": true
+  "preferNameDirectory": true,
+  "symbols": {
+    "reflectionCacheMethod": {
+      "type": "generated",
+      "generator": "regex",
+      "replaces": "AddFromMyApp",
+      "parameters": {
+        "source": "name",
+        "steps": [
+          {
+            "regex": "[^A-Za-z0-9]",
+            "replacement": ""
+          },
+          {
+            "regex": "^",
+            "replacement": "AddFrom"
+          }
+        ]
+      }
+    },
+    "serializerContextsMethod": {
+      "type": "generated",
+      "generator": "regex",
+      "replaces": "AddSerializerContextsFromMyApp",
+      "parameters": {
+        "source": "name",
+        "steps": [
+          {
+            "regex": "[^A-Za-z0-9_]",
+            "replacement": "_"
+          },
+          {
+            "regex": "^",
+            "replacement": "AddSerializerContextsFrom"
+          }
+        ]
+      }
+    },
+    "projectFile": {
+      "type": "generated",
+      "generator": "regex",
+      "replaces": "MyApp.csproj",
+      "parameters": {
+        "source": "name",
+        "steps": [
+          {
+            "regex": "$",
+            "replacement": ".csproj"
+          }
+        ]
+      }
+    }
+  }
 }
